@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const ExpenseBody = () => {
 
-const [transactions, setTransactions] = useState([]);
+  const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
     try {
@@ -38,7 +38,7 @@ const [transactions, setTransactions] = useState([]);
         <Balance total={total}/>
         <ExpenseContainer income={income} expense={expense}/>
         <Transaction transactions={transactions}/>
-        <AddTransaction />
+        <AddTransaction transactions={transactions} setTransactions={setTransactions} />
     </div>
   )
 }
