@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import TransactionContext from '../contexts/TransactionContext'
 
-function Balance({ total }) {
+function Balance() {
+
+  const { total } = useContext(TransactionContext)
 
   return (
     <>

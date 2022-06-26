@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import TransactionList from './TransactionList';
+import TransactionContext from '../contexts/TransactionContext';
 
-function Transaction({ transactions }) {
+function Transaction() {
+
+  const { transactions } = useContext(TransactionContext)
 
   return (
     <>

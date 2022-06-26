@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import AddTransaction from './AddTransaction'
 import Balance from './Balance'
 import ExpenseContainer from './ExpenseContainer'
 import Transaction from './Transaction'
 import axios from 'axios'
+import TransactionContext from '../contexts/TransactionContext'
 
 const ExpenseBody = () => {
 
-  const [transactions, setTransactions] = useState([]);
+  const { transactions, setTransactions } = useContext(TransactionContext)
 
   useEffect(() => {
     try {
@@ -18,27 +19,12 @@ const ExpenseBody = () => {
     }
   },[transactions])
 
-  const amounts = transactions.map(transaction => transaction.amount);
-
-  const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
-
-  const income = amounts
-    .filter(item => item > 0)
-    .reduce((acc, item) => (acc += item), 0)
-    .toFixed(2);
-
-  const expense = (amounts
-    .filter(item => item < 0)
-    .reduce((acc, item) => (acc += item), 0) * -1
-  ).toFixed(2)
-
-
   return (
     <div className='container'>
-        <Balance total={total}/>
-        <ExpenseContainer income={income} expense={expense}/>
-        <Transaction transactions={transactions}/>
-        <AddTransaction transactions={transactions} setTransactions={setTransactions} />
+        <Balance />
+        <ExpenseContainer />
+        <Transaction />
+        <AddTransaction />
     </div>
   )
 }

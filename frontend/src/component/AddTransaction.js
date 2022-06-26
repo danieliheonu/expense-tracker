@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import axios from 'axios'
+import TransactionContext from '../contexts/TransactionContext';
 
 function AddTransaction() {
 
-  const [text, setText] = useState('')
-
-  const [amount, setAmount] = useState('');
+  const {text, setText, amount, setAmount} = useContext(TransactionContext)
 
   const addExpense = (e) => {
     e.preventDefault();

@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import TransactionContext from '../contexts/TransactionContext'
 
-function ExpenseContainer({ income, expense }) {
+function ExpenseContainer() {
+
+  const { income, expense } = useContext(TransactionContext)
+
   return (
     <div className="inc-exp-container">
         <div>
