@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function AddTransaction() {
@@ -9,7 +9,12 @@ function AddTransaction() {
 
   const addExpense = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/api/v1/transactions", {item:text, amount:amount}, {'Content-Type':'application/json'})
+    axios({
+      method:'POST',
+      url:"http://localhost:5000/api/v1/transactions",
+      body:JSON.stringify({item:text, amount:amount}),
+      headers:{'Content-Type':'application/json'}
+    })
     setText('');
     setAmount('')
   }
