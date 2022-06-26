@@ -16,7 +16,7 @@ const ExpenseBody = () => {
     }catch (err) {
       console.log(err)
     }
-  },[])
+  },[transactions])
 
   const amounts = transactions.map(transaction => transaction.amount);
 

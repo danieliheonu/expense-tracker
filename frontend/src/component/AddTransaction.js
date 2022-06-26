@@ -12,7 +12,6 @@ function AddTransaction() {
     axios.post("http://localhost:5000/api/v1/transactions", {item:text, amount:amount})
     setText('');
     setAmount('');
-    window.location.href = '/'
   }
 
   return (

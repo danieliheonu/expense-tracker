@@ -5,7 +5,6 @@ function TransactionList({ transaction }) {
 
   const deleteTransaction = (id) => {
     axios.delete(`http://localhost:5000/api/v1/transactions/${id}`)
-    window.location.href = '/'
   }
 
   return (
